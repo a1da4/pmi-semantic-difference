@@ -1,0 +1,3 @@
+[submodule "models/pmi-svd/sppmi-svd"]
+	path = models/pmi-svd/sppmi-svd
+	url = git@github.com:a1da4/sppmi-svd.git
