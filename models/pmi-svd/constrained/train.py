@@ -19,7 +19,7 @@ def main(args):
                                 dim=args.dim,
                                 tau=args.tau,
                                 es=args.es)
-    model.load_ppmi_matrix(args.ppmi_pathes)
+    model.load_ppmi_matrix(args.ppmi_pathes, len(id_to_word))
 
     losses, best_loss, best_Ws, best_Us = model.train(args.n_iter, args.seed)
     print(f'Best_loss: {losses.index(best_loss)}epoch, {best_loss}')

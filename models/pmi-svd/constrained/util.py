@@ -82,17 +82,14 @@ def roc(Ws, id_to_word, dev_words, with_norm=False):
 
     return AUC, FP, TP
 
-def plot_roc(fp, tp, auc, tau, seed, with_norm=False):
+def plot_roc(fp, tp, auc, tau, seed):
     plt.plot(fp, tp, label=f'AUC={auc}')
     plt.xlabel('False Positive Rate')
     plt.ylabel('True Positive Rate')
     plt.xlim(0.0, 1.0)
     plt.ylim(0.0, 1.0)
     plt.legend()
-    if with_norm:
-        plt.savefig(f'ROC_csvd_cds-75_t-{tau}_seed-{seed}_with-norm.png')
-    else: 
-        plt.savefig(f'ROC_t-{tau}_seed-{seed}.png')
+    plt.savefig(f'PMI-SVDc_ROC_t-{tau}_seed-{seed}.png')
     plt.close()
 
 def plot_rocs(fps, tps, aucs, taus):
@@ -103,14 +100,14 @@ def plot_rocs(fps, tps, aucs, taus):
     for fp, tp, auc, tau in zip(fps, tps, aucs, taus):
         plt.plot(fp, tp, label='tau-{}, AUC={}'.format(tau, format(auc, '3f')))
     plt.legend()
-    plt.savefig('ROC_csvd.png')
+    plt.savefig('PMI-SVDc_ROC.png')
     plt.close()
 
 def plot_loss(losses, tau, seed):
     plt.xlabel('iteration')
     plt.ylabel('loss')
     plt.plot(range(len(losses)), losses)
-    plt.savefig(f'DWE_csvd_t-{tau}_seed-{seed}.png')
+    plt.savefig(f'PMI-SVDc_t-{tau}_seed-{seed}.png')
     plt.close()
 
 def plot_losses(losses_list, taus):
@@ -119,6 +116,6 @@ def plot_losses(losses_list, taus):
     for losses, tau in zip(losses_list, taus):
         plt.plot(range(len(losses)), losses, label='tau-{}'.format(tau))
     plt.legend()
-    plt.savefig('DWE_csvd.png')
+    plt.savefig('PMI-SVDc_loss.png')
     plt.close()
 

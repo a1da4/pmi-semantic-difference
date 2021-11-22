@@ -10,21 +10,21 @@ class SimplifiedDynamicWordEmbeddigs():
         self.tau = tau
         self.es = es
 
-    def load_ppmi_matrix(self, ppmi_pathes):
+    def load_ppmi_matrix(self, ppmi_pathes, V):
         """ load ppmi matrixes
         
         :param ppmi_pathes: list of ppmi matrix pathes
+        :param V: int, vocab size
 
         :return Ms: list of ppmi matrixes 
-        :return V: int, vocab size
         """
         ppmis = []
         for ppmi_path in args.ppmi_pathes:
-            ppmi_list = load_matrix(ppmi_path, len(id_to_word))
+            ppmi_list = load_matrix(ppmi_path, V)
             ppmi_np = np.array(ppmi_list)
             ppmis.append(ppmi_np)
         model.Ms = ppmis
-        self.V = self.Ms[0].shape[0]
+        self.V = V
         return self
 
     def initialize_embedding(self, seed):

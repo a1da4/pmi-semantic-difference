@@ -41,7 +41,7 @@ def grid_search(args, id_to_word):
         model = SimplifiedDynamicWordEmbeddigs(
             time_bins=time_bins, dim=args.dim, tau=tau, es=args.es
         )
-        model.load_ppmi_matrix(args.ppmi_pathes)
+        model.load_ppmi_matrix(args.ppmi_pathes, len(id_to_word))
 
         losses, loss, Ws, Cs, is_es = model.train(args.n_iter, args.seed)
         logging.info(f"[INFO] train finished")
@@ -49,7 +49,7 @@ def grid_search(args, id_to_word):
             logging.info("[INFO] early stopping: compute auc is skipped")
             continue
         auc, fp, tp = roc([Ws[0], Ws[-1]], id_to_word, dev_words, with_norm=False)
-        plot_roc(fp, tp, auc, tau, args.seed, with_norm=False)
+        plot_roc(fp, tp, auc, tau, args.seed)
         logging.info(f"auc: {auc}")
 
         plot_loss(losses, tau, args.seed)
