@@ -1,4 +1,4 @@
-# Orthogonal Procrustes (Hamilton2016)
+# Orthogonal Procrustes ([Hamilton2016](https://aclanthology.org/P16-1141/))
 
 - train.py: train word2vec
 - rotate.py: compute rotate matrix and align word embeddings
