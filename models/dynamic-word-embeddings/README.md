@@ -16,9 +16,9 @@ $python3 main.py --file_path {doc_file_2} \
   --threshold 0 --has_cds --window_size 4 --shift 1
 ```
 
-## 3. search best param or train directly
+## 2. search best param or train directly
 
-### 3.1 search best params {lambda, tau, gamma}
+### 2.1 search best params {lambda, tau, gamma}
 ```
 $python3 search.py --ppmi_pathes {ppmi_1} {ppmi_2} \
   --seed 1 --dim 100 --n_iter 50 \
@@ -26,7 +26,7 @@ $python3 search.py --ppmi_pathes {ppmi_1} {ppmi_2} \
   --dev_list {dev_word_list}
 ```
 
-### 3.2 train model directly
+### 2.2 train model directly
 ```
 $python3 train.py --ppmi_pathes {ppmi_1} {ppmi_2} \
   --seed 1 --dim 100 --n_iter 50 \
