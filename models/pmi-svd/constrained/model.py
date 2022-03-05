@@ -19,7 +19,7 @@ class SimplifiedDynamicWordEmbeddigs():
         :return Ms: list of ppmi matrixes 
         """
         ppmis = []
-        for ppmi_path in args.ppmi_pathes:
+        for ppmi_path in ppmi_pathes:
             ppmi_list = load_matrix(ppmi_path, V)
             ppmi_np = np.array(ppmi_list)
             ppmis.append(ppmi_np)
