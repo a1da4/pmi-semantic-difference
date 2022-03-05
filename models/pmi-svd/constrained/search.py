@@ -83,7 +83,7 @@ def cli_main():
         "-d", "--dim", type=int, default=100, help="int, dimension of word embedding."
     )
     parser.add_argument(
-        "-n", "--n_iter", type=int, default=5, help="int, iteration of training."
+        "-n", "--n_iter", type=int, default=100, help="int, iteration of training."
     )
     parser.add_argument(
         "-e", "--es", type=int, default=3, help="int, patients of early stopping."
