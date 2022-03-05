@@ -23,7 +23,7 @@ class SimplifiedDynamicWordEmbeddigs():
             ppmi_list = load_matrix(ppmi_path, V)
             ppmi_np = np.array(ppmi_list)
             ppmis.append(ppmi_np)
-        model.Ms = ppmis
+        self.Ms = ppmis
         self.V = V
         return self
 
